@@ -1,13 +1,15 @@
 import { Container } from 'react-bootstrap'
 import './App.css'
 import Footer from './components/Footer'
+import Formulario from './components/Formulario'
 
 function App() {
   return (
     <>
       <main className='my-4 mainPage'>
         <Container>
-          <h1>Hola mundo !</h1>
+          <h1 className='text-center display-3'>Alta de Películas</h1>
+          <Formulario />
         </Container>
       </main>
 
