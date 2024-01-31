@@ -16,3 +16,19 @@ span{
   height: 150px;
   resize: none;
 }
+
+.imgPelicula{
+  width: 50%;
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .imgPelicula{
+    width: 60% !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .imgPelicula{
+    width: 70% !important;
+  }
+}
