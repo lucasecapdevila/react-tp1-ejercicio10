@@ -11,3 +11,8 @@
 span{
   color: red;
 }
+
+#descripcion{
+  height: 150px;
+  resize: none;
+}
