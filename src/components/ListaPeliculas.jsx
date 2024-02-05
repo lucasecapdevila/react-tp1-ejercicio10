@@ -1,11 +1,12 @@
-import React from 'react'
 import ItemPelicula from './ItemPelicula'
 
-const ListaPeliculas = () => {
+const ListaPeliculas = ({peliculasProp}) => {
+  const titulo = peliculasProp.length === 0 ? 'No hay películas en este momento.' : 'Películas agregadas'
+
   return (
     <section className='mt-2 row'>
-      <h2 className='text-center display-4'>Películas agregadas</h2>
-      <ItemPelicula />
+      <h2 className='text-center display-4'>{titulo}</h2>
+      {peliculasProp.map((pelicula, posicionPelicula) => <ItemPelicula key={posicionPelicula} pelicula={pelicula} />)} 
     </section>
   )
 }
