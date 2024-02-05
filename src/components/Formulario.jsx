@@ -22,6 +22,8 @@ const Formulario = ({crearPelicula}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    pelicula.id = crypto.randomUUID()
+    
     crearPelicula(pelicula)
     setPelicula({
       nombrePelicula: '',

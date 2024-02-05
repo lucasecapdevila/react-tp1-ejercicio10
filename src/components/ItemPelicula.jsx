@@ -1,6 +1,6 @@
 import { Button, Card } from 'react-bootstrap'
 
-const ItemPelicula = ({pelicula}) => {
+const ItemPelicula = ({pelicula, eliminarPelicula}) => {
   return (
     <article className='col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column'>
       <Card className='my-2'>
@@ -12,7 +12,7 @@ const ItemPelicula = ({pelicula}) => {
           <p className='fw-bold'>{pelicula.genero}</p>
           <p className='lead'>{pelicula.descripcion}</p>
         </Card.Body>
-        <Button variant='danger' className='ms-auto me-3 mb-2'>Eliminar</Button>
+        <Button variant='danger' className='ms-auto me-3 mb-2' onClick={() => eliminarPelicula(pelicula.id)}>Eliminar</Button>
       </Card>
     </article>
   )

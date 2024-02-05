@@ -17,6 +17,11 @@ function App() {
     setListaPeliculas([...listaPeliculas, pelicula])
   }
 
+  const eliminarPelicula = (id) => {
+    const copiaPeliculas = listaPeliculas.filter(pelicula => pelicula.id !== id)
+    setListaPeliculas(copiaPeliculas)
+  }
+
   return (
     <>
       <main className='my-4 mainPage'>
@@ -27,6 +32,7 @@ function App() {
           />
           <ListaPeliculas
             peliculasProp={listaPeliculas}
+            eliminarPelicula={eliminarPelicula}
           />
         </Container>
       </main>
