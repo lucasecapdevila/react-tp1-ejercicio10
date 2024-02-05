@@ -13,12 +13,18 @@ function App() {
     localStorage.setItem('peliculas', JSON.stringify(listaPeliculas))
   }, [listaPeliculas])
 
+  const crearPelicula = (pelicula) => {
+    setListaPeliculas([...listaPeliculas, pelicula])
+  }
+
   return (
     <>
       <main className='my-4 mainPage'>
         <Container>
           <h1 className='text-center display-3'>Alta de Películas</h1>
-          <Formulario />
+          <Formulario
+            crearPelicula={crearPelicula}
+          />
           <ListaPeliculas
             peliculasProp={listaPeliculas}
           />

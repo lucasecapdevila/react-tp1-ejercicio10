@@ -1,16 +1,33 @@
 import React, { useState } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
 
-const Formulario = () => {
+const Formulario = ({crearPelicula}) => {
   const [pelicula, setPelicula] = useState({
     nombrePelicula: '',
     descripcion: '',
     genero: ''
   })
+  
+  const handleNombreChange = (e) => {
+    setPelicula({...pelicula, nombrePelicula: e.target.value})
+  }
+  
+  const handleDescripcionChange = (e) => {
+    setPelicula({...pelicula, descripcion: e.target.value})
+  }
+  
+  const handleGeneroChange = (e) => {
+    setPelicula({...pelicula, genero: e.target.value})
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Submit funcionando');
+    crearPelicula(pelicula)
+    setPelicula({
+      nombrePelicula: '',
+      descripcion: '',
+      genero: 'Elija una opción'
+    })
   }
 
   return (
@@ -27,7 +44,8 @@ const Formulario = () => {
                 minLength={2}
                 maxLength={50}
                 name='nombre'
-                // value=''
+                value={pelicula.nombrePelicula}
+                onChange={handleNombreChange}
                 required
               />
             </Form.Group>
@@ -41,18 +59,22 @@ const Formulario = () => {
                 minLength={10}
                 maxLength={100}
                 name='descripcion'
-                // value=''
+                value={pelicula.descripcion}
+                onChange={handleDescripcionChange}
                 required
               />
             </Form.Group>
 
             <Form.Group controlId='genero'>
               <Form.Label>Género</Form.Label>
-              <Form.Select aria-label='opciones'>
-                <option>Elija una opción</option>
-                <option value="1">Comedia</option>
-                <option value="2">Drama</option>
-                <option value="3">Infantil</option>
+              <Form.Select
+                aria-label='opciones'
+                onChange={handleGeneroChange}
+              >
+                <option defaultValue='Elija una opción'>Elija una opción</option>
+                <option value="Comedia">Comedia</option>
+                <option value="Drama">Drama</option>
+                <option value="Infantil">Infantil</option>
               </Form.Select>
             </Form.Group>
             
