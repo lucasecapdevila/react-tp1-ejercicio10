@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
 
 const Formulario = () => {
+  const [pelicula, setPelicula] = useState({
+    nombrePelicula: '',
+    descripcion: '',
+    genero: ''
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('Submit funcionando');
+  }
+
   return (
     <section>
       <Card>
         <Card.Header as='h2' className='fw-bold fs-4 px-2'>Ingresa los datos de la película</Card.Header>
         <Card.Body>
-          <Form className='d-flex flex-column'>
+          <Form className='d-flex flex-column' onSubmit={handleSubmit}>
             <Form.Group controlId='nombre'>
               <Form.Label>Nombre</Form.Label>
               <Form.Control
@@ -25,6 +36,13 @@ const Formulario = () => {
               <Form.Label>Descripción</Form.Label>
               <Form.Control 
                 as='textarea'
+                type='text'
+                placeholder='Ingrese una breve descripción de la película'
+                minLength={10}
+                maxLength={100}
+                name='descripcion'
+                // value=''
+                required
               />
             </Form.Group>
 
